@@ -15,5 +15,26 @@ void glob_context_destroy( glob_context_t* context ) {
 }
 
 glob_state_t glob_context_match( glob_context_t* context ) {
+  DIR* dir = opendir( context->path );
+  struct dirent* dirent = readdir( dir );
+
+  if( dirent == NULL ) return GLOB_STOP;
+
+  fnmatch_context_push( &(context->fnmatch), dirent->d_name );
+
+  do {
+    state = fnmatch_context_match( &(context->fnmatch) );
+    switch( state ) {
+      case FNMATCH_PUSH:
+        /* recursive */
+        break;
+      case FNMATCH_POP:
+        fnmatch_context_pop( &(context->fnmatch) );
+        break;
+      case FNMATCH_ERROR:
+        return GLOB_ERROR;
+    }
+  } while( state != FNMATCH_STOP );
+
   return GLOB_STOP;
 }
