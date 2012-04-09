@@ -3,6 +3,8 @@
 #include "internal.h"
 #include <fnmatch.h>
 #include <dirent.h>
+#include <stdlib.h>
+#include <string.h>
 
 void glob_context_init( glob_context_t* context, fnmatch_pattern_t* pattern, const char* path ) {
   fnmatch_context_init( &(context->fnmatch), pattern );
@@ -17,6 +19,7 @@ void glob_context_destroy( glob_context_t* context ) {
 glob_state_t glob_context_match( glob_context_t* context ) {
   DIR* dir = opendir( context->path );
   struct dirent* dirent = readdir( dir );
+  fnmatch_state_t state;
 
   if( dirent == NULL ) return GLOB_STOP;
 
@@ -33,6 +36,8 @@ glob_state_t glob_context_match( glob_context_t* context ) {
         break;
       case FNMATCH_ERROR:
         return GLOB_ERROR;
+      default:
+        break;
     }
   } while( state != FNMATCH_STOP );
 

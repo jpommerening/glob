@@ -10,12 +10,13 @@
 		593A9B64153335750029A38D /* glob.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B59153335750029A38D /* glob.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		593A9B65153335750029A38D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5A153335750029A38D /* Makefile */; };
 		593A9B66153335750029A38D /* context.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5C153335750029A38D /* context.c */; };
-		593A9B67153335750029A38D /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B5D153335750029A38D /* internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		593A9B67153335750029A38D /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B5D153335750029A38D /* internal.h */; settings = {ATTRIBUTES = (); }; };
 		593A9B68153335750029A38D /* posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5E153335750029A38D /* posix.c */; };
 		593A9B6B153335750029A38D /* test.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B63153335750029A38D /* test.h */; };
 		593A9B85153336F90029A38D /* run-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B61153335750029A38D /* run-tests.c */; };
 		593A9B86153336FC0029A38D /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B62153335750029A38D /* test.c */; };
 		593A9B87153337020029A38D /* libglob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5958B620153334B500AC8652 /* libglob.a */; };
+		593A9B8A153338BA0029A38D /* fnmatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 593A9B88153338A90029A38D /* fnmatch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		593A9B63153335750029A38D /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		593A9B6D153335AB0029A38D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		593A9B78153336CE0029A38D /* run-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "run-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
+		593A9B88153338A90029A38D /* fnmatch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = fnmatch.a; path = "../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/fnmatch.a"; sourceTree = "<group>"; };
 		5958B620153334B500AC8652 /* libglob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libglob.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				593A9B87153337020029A38D /* libglob.a in Frameworks */,
+				593A9B8A153338BA0029A38D /* fnmatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,14 @@
 			path = test;
 			sourceTree = "<group>";
 		};
+		593A9B8B153338D80029A38D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				593A9B88153338A90029A38D /* fnmatch.a */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		5958B615153334B500AC8652 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +114,7 @@
 				593A9B58153335750029A38D /* include */,
 				593A9B5B153335750029A38D /* src */,
 				593A9B5F153335750029A38D /* test */,
+				593A9B8B153338D80029A38D /* Libraries */,
 				5958B621153334B500AC8652 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,8 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				593A9B64153335750029A38D /* glob.h in Headers */,
-				593A9B67153335750029A38D /* internal.h in Headers */,
 				593A9B6B153335750029A38D /* test.h in Headers */,
+				593A9B67153335750029A38D /* internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +256,10 @@
 		593A9B80153336CE0029A38D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +267,10 @@
 		593A9B81153336CE0029A38D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -304,6 +324,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/usr/local/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -312,6 +340,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/usr/local/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
