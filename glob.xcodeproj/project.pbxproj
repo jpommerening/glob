@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5911CDAC15334774007AF062 /* gen-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA81533475F007AF062 /* gen-tests.c */; };
+		5911CDAD15334778007AF062 /* test-posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA91533475F007AF062 /* test-posix.c */; };
 		593A9B64153335750029A38D /* glob.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B59153335750029A38D /* glob.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		593A9B65153335750029A38D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5A153335750029A38D /* Makefile */; };
 		593A9B66153335750029A38D /* context.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5C153335750029A38D /* context.c */; };
 		593A9B67153335750029A38D /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B5D153335750029A38D /* internal.h */; settings = {ATTRIBUTES = (); }; };
 		593A9B68153335750029A38D /* posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B5E153335750029A38D /* posix.c */; };
 		593A9B6B153335750029A38D /* test.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B63153335750029A38D /* test.h */; };
 		593A9B85153336F90029A38D /* run-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B61153335750029A38D /* run-tests.c */; };
 		593A9B86153336FC0029A38D /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 593A9B62153335750029A38D /* test.c */; };
-		593A9B87153337020029A38D /* libglob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5958B620153334B500AC8652 /* libglob.a */; };
+		593A9B87153337020029A38D /* glob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5958B620153334B500AC8652 /* glob.a */; };
 		593A9B8A153338BA0029A38D /* fnmatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 593A9B88153338A90029A38D /* fnmatch.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5911CDA81533475F007AF062 /* gen-tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "gen-tests.c"; sourceTree = "<group>"; };
+		5911CDA91533475F007AF062 /* test-posix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "test-posix.c"; sourceTree = "<group>"; };
 		593A9B56153335750029A38D /* config-mingw.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = "config-mingw.mk"; sourceTree = "<group>"; };
 		593A9B57153335750029A38D /* config-unix.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = "config-unix.mk"; sourceTree = "<group>"; };
 		593A9B59153335750029A38D /* glob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glob.h; sourceTree = "<group>"; };
@@ -42,9 +45,9 @@
 		593A9B62153335750029A38D /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		593A9B63153335750029A38D /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		593A9B6D153335AB0029A38D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		593A9B78153336CE0029A38D /* run-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "run-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
-		593A9B88153338A90029A38D /* fnmatch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = fnmatch.a; path = "../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/fnmatch.a"; sourceTree = "<group>"; };
-		5958B620153334B500AC8652 /* libglob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libglob.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		593A9B78153336CE0029A38D /* glob-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "glob-test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		593A9B88153338A90029A38D /* fnmatch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = fnmatch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5958B620153334B500AC8652 /* glob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = glob.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				593A9B87153337020029A38D /* libglob.a in Frameworks */,
+				593A9B87153337020029A38D /* glob.a in Frameworks */,
 				593A9B8A153338BA0029A38D /* fnmatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,7 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				593A9B60153335750029A38D /* gen-tests.sh */,
+				5911CDA81533475F007AF062 /* gen-tests.c */,
 				593A9B61153335750029A38D /* run-tests.c */,
+				5911CDA91533475F007AF062 /* test-posix.c */,
 				593A9B62153335750029A38D /* test.c */,
 				593A9B63153335750029A38D /* test.h */,
 			);
@@ -122,8 +127,8 @@
 		5958B621153334B500AC8652 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5958B620153334B500AC8652 /* libglob.a */,
-				593A9B78153336CE0029A38D /* run-tests */,
+				5958B620153334B500AC8652 /* glob.a */,
+				593A9B78153336CE0029A38D /* glob-test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,9 +149,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		593A9B77153336CE0029A38D /* run-tests */ = {
+		593A9B77153336CE0029A38D /* glob-test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 593A9B7F153336CE0029A38D /* Build configuration list for PBXNativeTarget "run-tests" */;
+			buildConfigurationList = 593A9B7F153336CE0029A38D /* Build configuration list for PBXNativeTarget "glob-test" */;
 			buildPhases = (
 				593A9B82153336D40029A38D /* ShellScript */,
 				593A9B74153336CE0029A38D /* Sources */,
@@ -157,9 +162,9 @@
 			dependencies = (
 				593A9B84153336DF0029A38D /* PBXTargetDependency */,
 			);
-			name = "run-tests";
+			name = "glob-test";
 			productName = "run-tests";
-			productReference = 593A9B78153336CE0029A38D /* run-tests */;
+			productReference = 593A9B78153336CE0029A38D /* glob-test */;
 			productType = "com.apple.product-type.tool";
 		};
 		5958B61F153334B500AC8652 /* glob */ = {
@@ -176,7 +181,7 @@
 			);
 			name = glob;
 			productName = glob;
-			productReference = 5958B620153334B500AC8652 /* libglob.a */;
+			productReference = 5958B620153334B500AC8652 /* glob.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +206,7 @@
 			projectRoot = "";
 			targets = (
 				5958B61F153334B500AC8652 /* glob */,
-				593A9B77153336CE0029A38D /* run-tests */,
+				593A9B77153336CE0029A38D /* glob-test */,
 			);
 		};
 /* End PBXProject section */
@@ -218,7 +223,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$(PROJECT_DIR)/test/gen-tests.sh test/test-*.c";
+			shellScript = "${PROJECT_DIR}/test/gen-tests.sh test/test-*.c";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -229,6 +234,8 @@
 			files = (
 				593A9B85153336F90029A38D /* run-tests.c in Sources */,
 				593A9B86153336FC0029A38D /* test.c in Sources */,
+				5911CDAC15334774007AF062 /* gen-tests.c in Sources */,
+				5911CDAD15334778007AF062 /* test-posix.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				593A9B65153335750029A38D /* Makefile in Sources */,
 				593A9B66153335750029A38D /* context.c in Sources */,
 				593A9B68153335750029A38D /* posix.c in Sources */,
 			);
@@ -256,10 +262,6 @@
 		593A9B80153336CE0029A38D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -267,10 +269,6 @@
 		593A9B81153336CE0029A38D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -295,6 +293,14 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TARGET_BUILD_DIR)/usr/local/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TARGET_BUILD_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -315,6 +321,14 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TARGET_BUILD_DIR)/usr/local/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TARGET_BUILD_DIR)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -323,15 +337,7 @@
 		5958B625153334B500AC8652 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/usr/local/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
-				);
+				EXECUTABLE_PREFIX = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -339,15 +345,7 @@
 		5958B626153334B500AC8652 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug/usr/local/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/sproc-flcrwquykdfsfobuxqgtgttzuvoi/Build/Products/Debug\"",
-				);
+				EXECUTABLE_PREFIX = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -355,13 +353,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		593A9B7F153336CE0029A38D /* Build configuration list for PBXNativeTarget "run-tests" */ = {
+		593A9B7F153336CE0029A38D /* Build configuration list for PBXNativeTarget "glob-test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				593A9B80153336CE0029A38D /* Debug */,
 				593A9B81153336CE0029A38D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5958B61A153334B500AC8652 /* Build configuration list for PBXProject "glob" */ = {
 			isa = XCConfigurationList;
