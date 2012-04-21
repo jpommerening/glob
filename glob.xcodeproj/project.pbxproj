@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		590D9684153CC9DD009BDB31 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 590D9683153CC9DD009BDB31 /* util.c */; };
+		590D9687153E0705009BDB31 /* test-context.c in Sources */ = {isa = PBXBuildFile; fileRef = 590D9686153E0705009BDB31 /* test-context.c */; };
 		5911CDAC15334774007AF062 /* gen-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA81533475F007AF062 /* gen-tests.c */; };
 		5911CDAD15334778007AF062 /* test-posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA91533475F007AF062 /* test-posix.c */; };
 		593A9B64153335750029A38D /* glob.h in Headers */ = {isa = PBXBuildFile; fileRef = 593A9B59153335750029A38D /* glob.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		590D9683153CC9DD009BDB31 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		590D9686153E0705009BDB31 /* test-context.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "test-context.c"; sourceTree = "<group>"; };
 		5911CDA81533475F007AF062 /* gen-tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "gen-tests.c"; sourceTree = "<group>"; };
 		5911CDA91533475F007AF062 /* test-posix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "test-posix.c"; sourceTree = "<group>"; };
 		593A9B56153335750029A38D /* config-mingw.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = "config-mingw.mk"; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			children = (
 				593A9B5C153335750029A38D /* context.c */,
 				593A9B5D153335750029A38D /* internal.h */,
+				590D9683153CC9DD009BDB31 /* util.c */,
 				593A9B5E153335750029A38D /* posix.c */,
 			);
 			path = src;
@@ -95,6 +100,7 @@
 				5911CDA81533475F007AF062 /* gen-tests.c */,
 				593A9B61153335750029A38D /* run-tests.c */,
 				5911CDA91533475F007AF062 /* test-posix.c */,
+				590D9686153E0705009BDB31 /* test-context.c */,
 				593A9B62153335750029A38D /* test.c */,
 				593A9B63153335750029A38D /* test.h */,
 			);
@@ -245,6 +251,8 @@
 			files = (
 				593A9B66153335750029A38D /* context.c in Sources */,
 				593A9B68153335750029A38D /* posix.c in Sources */,
+				590D9684153CC9DD009BDB31 /* util.c in Sources */,
+				590D9687153E0705009BDB31 /* test-context.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
