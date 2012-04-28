@@ -52,7 +52,7 @@ static void glob__context_push( glob_context_t* context ) {
   size_t offset = context->buflen-1;
   size_t length = 0;
   
-  if( context->buflen == 0 || context->type == GLOB_FILE ) {
+  if( context->buflen == 0 ) {
     fnmatch_context_push( &(context->fnmatch), NULL );
     return;
   }
@@ -60,7 +60,6 @@ static void glob__context_push( glob_context_t* context ) {
   
   while( offset>0 && context->buffer[offset-1] != '\0' ) --offset;
 
-  // append to path
   context->type = context->buffer[offset];
   length = context->buflen - offset - 1;
   
@@ -71,6 +70,10 @@ static void glob__context_push( glob_context_t* context ) {
   context->buflen = offset;
   fnmatch_context_push( &(context->fnmatch), &(context->buffer[offset+1]) );
 
+  if( context->type == GLOB_FILE ) {
+    fnmatch_context_push( &(context->fnmatch), NULL );
+  }
+  
   /*printf( "Push: %s, Path: %s\n", &(context->buffer[offset+1]), context->path );*/
 }
 
@@ -99,6 +102,12 @@ void glob_context_dirent( glob_context_t* context, glob_filetype_t type, const c
   memcpy(&(context->buffer[offset+1]), dirent, length);
   context->buffer[offset] = type;
   context->buflen += length;
+  
+  if( type == GLOB_DIR && dirent[length-2] != '/' ) {
+    GLOB_GROW(context->buffer, offset+length+1, &(context->bufalloc));
+    context->buffer[offset+length] = '/';
+    context->buffer[offset+length] = '\0';
+  }
 }
 
 glob_state_t glob_context_match( glob_context_t* context ) {
