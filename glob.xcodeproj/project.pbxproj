@@ -159,7 +159,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 593A9B7F153336CE0029A38D /* Build configuration list for PBXNativeTarget "glob-test" */;
 			buildPhases = (
-				593A9B82153336D40029A38D /* ShellScript */,
 				593A9B74153336CE0029A38D /* Sources */,
 				593A9B75153336CE0029A38D /* Frameworks */,
 			);
@@ -180,6 +179,7 @@
 				5958B61C153334B500AC8652 /* Sources */,
 				5958B61D153334B500AC8652 /* Frameworks */,
 				5958B61E153334B500AC8652 /* Headers */,
+				415B14D315E6C1F70003F8B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,18 +218,21 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		593A9B82153336D40029A38D /* ShellScript */ = {
+		415B14D315E6C1F70003F8B4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/test/test-context.c",
+				"$(SRCROOT)/test/test-posix.c",
 			);
 			outputPaths = (
+				"$(SRCROOT)/test/gen-tests.c",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/test/gen-tests.sh test/test-*.c";
+			shellScript = "declare -a SCRIPT_INPUT_FILES=()\ncd ${PROJECT_DIR}\n\nfor ((i=0; i<${SCRIPT_INPUT_FILE_COUNT}; i++ )) ; do\n  SCRIPT_INPUT_FILES[$i]=`eval echo \\\\${SCRIPT_INPUT_FILE_${i}#${PROJECT_DIR}/}`\ndone\n    \necho \"./test/gen-tests.sh ${SCRIPT_INPUT_FILES[@]} > ${SCRIPT_OUTPUT_FILE_0}\"\n./test/gen-tests.sh \"${SCRIPT_INPUT_FILES[@]}\" > ${SCRIPT_OUTPUT_FILE_0}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
