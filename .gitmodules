@@ -1,0 +1,3 @@
+[submodule "deps/fnmatch"]
+	path = deps/fnmatch
+	url = git@github.com:jpommerening/fnmatch.git
