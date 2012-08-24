@@ -86,7 +86,7 @@ static void glob__context_pop( glob_context_t* context ) {
   const char* str = fnmatch_context_pop( &(context->fnmatch) );
   
   while( offset>0 && context->path[offset-1] != '/' ) --offset;
-  assert( strcmp( str, &(context->path[offset]) ) == 0 );
+  assert( strcmp( str, &(context->path[offset]) ) == 0 && "fnmatch_context_pop returned unexpected entry" );
   context->path[offset] = '\0';
   context->plen = offset;
   

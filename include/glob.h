@@ -39,12 +39,14 @@ extern "C" {
 #define GLOB_EXTERN extern
 
 typedef enum {
-  GLOB_MATCH,
   GLOB_NOMATCH,
-  GLOB_READDIR,
+  GLOB_MATCH,
+  GLOB_PUSHDIR,
+  GLOB_READDIR = GLOB_PUSHDIR,
+  GLOB_POPDIR,
   GLOB_CONTINUE,
   GLOB_STOP,
-  GLOB_ERROR
+  GLOB_ERROR,
 } glob_state_t;
 
 typedef enum {
