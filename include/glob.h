@@ -41,8 +41,7 @@ extern "C" {
 typedef enum {
   GLOB_NOMATCH,
   GLOB_MATCH,
-  GLOB_PUSHDIR,
-  GLOB_READDIR = GLOB_PUSHDIR,
+  GLOB_READDIR,
   GLOB_POPDIR,
   GLOB_CONTINUE,
   GLOB_STOP,
@@ -60,7 +59,7 @@ typedef struct glob_context_s glob_context_t;
 
 struct glob_context_s {
   fnmatch_context_t fnmatch;
-  glob_filetype_t type;
+  glob_filetype_t   type;
   char*  path;
   size_t plen;
   size_t palloc;

@@ -20,7 +20,6 @@
  * match   match    src/\0\0a.c\0a.out\0        /root/test/a.h
  * match   nomatch  src/\0\0a.c\0               /root/test/a.out
  * match   match    src/\0\0                    /root/test/a.c
- * match   popdir   src/\0\0                    /root/
  * match   nomatch  \0                          /root/src/
  * ------  -------  --------------------------  ------------------
  */
@@ -56,9 +55,6 @@ TEST( test_context_simple ) {
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.c", context.path );
-
-  ASSERTEQ( GLOB_POPDIR, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/", context.path );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/src/", context.path );
