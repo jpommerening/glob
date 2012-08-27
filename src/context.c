@@ -19,12 +19,23 @@ void glob_context_init( glob_context_t* context, fnmatch_pattern_t* pattern, con
   context->buflen = 0;
   context->bufalloc = 0;
 
-  context->type  = GLOB_END;
+  context->type = GLOB_DIR;
 }
 
 void glob_context_destroy( glob_context_t* context ) {
   fnmatch_context_destroy( &(context->fnmatch) );
   free( context->buffer );
+}
+
+static void glob__context_path( glob_context_t* context, const char* dirent, size_t length ) {
+  if( dirent != NULL ) {
+    GLOB_GROW(context->path, context->plen+length+1, &(context->palloc));
+    memcpy( &(context->path[context->plen]), dirent, length+1 );
+    context->plen += length;
+    context->type  = (dirent[length-1] == '/') ? GLOB_DIR : GLOB_FILE;
+  } else {
+    context->type = GLOB_END;
+  }
 }
 
 /**
@@ -38,6 +49,7 @@ static void glob__context_push( glob_context_t* context ) {
 
   if( context->buflen == 0 ) {
     printf( "Buffer empty!\n" );
+    return;
   }
 
   /* let bufend point to terminating \0 */
@@ -52,16 +64,16 @@ static void glob__context_push( glob_context_t* context ) {
   if( length > 0 ) {
     printf( "Consume dirent %s in directory %s (bufend: %p, dirent: %p)\n", dirent, context->path, bufend, dirent );
 
-    GLOB_GROW(context->path, context->plen+length+1, &(context->palloc));
-    memcpy( &(context->path[context->plen]), dirent, length+1 );
-    context->plen += length;
-
     context->buflen -= length+1;
+
+    glob__context_path( context, dirent, length );
     fnmatch_context_push( &(context->fnmatch), dirent );
   } else {
     printf( "Finished dir %s (bufend: %p, dirent: %p)\n", context->path, bufend, dirent );
 
     context->buflen -= 1;
+
+    glob__context_path( context, dirent, 0 );
     fnmatch_context_push( &(context->fnmatch), NULL );
   }
 }

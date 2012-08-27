@@ -45,7 +45,7 @@ typedef enum {
   GLOB_POPDIR,
   GLOB_CONTINUE,
   GLOB_STOP,
-  GLOB_ERROR,
+  GLOB_ERROR
 } glob_state_t;
 
 typedef enum {

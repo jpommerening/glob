@@ -38,9 +38,11 @@ TEST( test_context_simple ) {
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/x.c", context.path );
+  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/", context.path );
+  ASSERTEQ( GLOB_DIR, context.type );
 
   ASSERTEQ( GLOB_READDIR, glob_context_match(&context) );
   glob_context_dirent(&context, GLOB_FILE, "a.c");
@@ -49,15 +51,19 @@ TEST( test_context_simple ) {
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.h", context.path );
+  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.out", context.path );
+  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.c", context.path );
+  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/src/", context.path );
+  ASSERTEQ( GLOB_DIR, context.type );
 
   ASSERTEQ( GLOB_STOP, glob_context_match(&context) );
   
