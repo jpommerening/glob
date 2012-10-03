@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		416FD75F161A239D00AEA066 /* mem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416FD75E161A239D00AEA066 /* mem.a */; };
-		590D9684153CC9DD009BDB31 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 590D9683153CC9DD009BDB31 /* util.c */; };
+		416FD784161CC42400AEA066 /* test-context.c in Sources */ = {isa = PBXBuildFile; fileRef = 590D9686153E0705009BDB31 /* test-context.c */; };
+		416FD785161CC42E00AEA066 /* test-posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA91533475F007AF062 /* test-posix.c */; };
 		590D9687153E0705009BDB31 /* test-context.c in Sources */ = {isa = PBXBuildFile; fileRef = 590D9686153E0705009BDB31 /* test-context.c */; };
 		5911CDAC15334774007AF062 /* gen-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA81533475F007AF062 /* gen-tests.c */; };
 		5911CDAD15334778007AF062 /* test-posix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5911CDA91533475F007AF062 /* test-posix.c */; };
@@ -35,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		416FD75E161A239D00AEA066 /* mem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = mem.a; path = "../../../Library/Developer/Xcode/DerivedData/c-gcrsylqxuhhkuvajhcnpfzpwxmek/Build/Products/Debug/mem.a"; sourceTree = "<group>"; };
-		590D9683153CC9DD009BDB31 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		590D9686153E0705009BDB31 /* test-context.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "test-context.c"; sourceTree = "<group>"; };
 		5911CDA81533475F007AF062 /* gen-tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "gen-tests.c"; sourceTree = "<group>"; };
 		5911CDA91533475F007AF062 /* test-posix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "test-posix.c"; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 			children = (
 				593A9B5C153335750029A38D /* context.c */,
 				593A9B5D153335750029A38D /* internal.h */,
-				590D9683153CC9DD009BDB31 /* util.c */,
 				593A9B5E153335750029A38D /* posix.c */,
 			);
 			path = src;
@@ -249,6 +248,7 @@
 				593A9B86153336FC0029A38D /* test.c in Sources */,
 				5911CDAC15334774007AF062 /* gen-tests.c in Sources */,
 				5911CDAD15334778007AF062 /* test-posix.c in Sources */,
+				416FD784161CC42400AEA066 /* test-context.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +258,7 @@
 			files = (
 				593A9B66153335750029A38D /* context.c in Sources */,
 				593A9B68153335750029A38D /* posix.c in Sources */,
-				590D9684153CC9DD009BDB31 /* util.c in Sources */,
+				416FD785161CC42E00AEA066 /* test-posix.c in Sources */,
 				590D9687153E0705009BDB31 /* test-context.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +302,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = c89;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -337,7 +337,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = c89;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

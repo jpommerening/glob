@@ -59,13 +59,9 @@ typedef struct glob_context_s glob_context_t;
 
 struct glob_context_s {
   fnmatch_context_t fnmatch;
-  char*  path;
-  size_t plen;
-  size_t palloc;
+  buffer_t path;
+  buffer_t stack;
   
-  char*  buffer;
-  size_t buflen;
-  size_t bufalloc;
   char*  dirent;
 };
 

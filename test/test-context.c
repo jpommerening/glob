@@ -37,10 +37,10 @@ TEST( test_context_simple ) {
   glob_context_dirent(&context, "x.c");
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/x.c", context.path );
+  ASSERTSTREQ( "/root/x.c", context.path.data );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/test", context.path );
+  ASSERTSTREQ( "/root/test", context.path.data );
 
   ASSERTEQ( GLOB_READDIR, glob_context_match(&context) );
   glob_context_dirent(&context, "a.c");
@@ -48,16 +48,16 @@ TEST( test_context_simple ) {
   glob_context_dirent(&context, "a.h");
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/test/a.h", context.path );
+  ASSERTSTREQ( "/root/test/a.h", context.path.data );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/test/a.out", context.path );
+  ASSERTSTREQ( "/root/test/a.out", context.path.data );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/test/a.c", context.path );
+  ASSERTSTREQ( "/root/test/a.c", context.path.data );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/src", context.path );
+  ASSERTSTREQ( "/root/src", context.path.data );
 
   ASSERTEQ( GLOB_STOP, glob_context_match(&context) );
   
