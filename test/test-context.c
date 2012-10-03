@@ -32,38 +32,32 @@ TEST( test_context_simple ) {
   glob_context_init(&context, &pattern, "/root/");
 
   ASSERTEQ( GLOB_READDIR, glob_context_match(&context) );
-  glob_context_dirent(&context, GLOB_DIR, "src/");
-  glob_context_dirent(&context, GLOB_DIR, "test"); /* must work with and without trailing slash */
-  glob_context_dirent(&context, GLOB_FILE, "x.c");
+  glob_context_dirent(&context, "src/");
+  glob_context_dirent(&context, "test"); /* must work with and without trailing slash */
+  glob_context_dirent(&context, "x.c");
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/x.c", context.path );
-  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/test/", context.path );
-  ASSERTEQ( GLOB_DIR, context.type );
+  ASSERTSTREQ( "/root/test", context.path );
 
   ASSERTEQ( GLOB_READDIR, glob_context_match(&context) );
-  glob_context_dirent(&context, GLOB_FILE, "a.c");
-  glob_context_dirent(&context, GLOB_FILE, "a.out");
-  glob_context_dirent(&context, GLOB_FILE, "a.h");
+  glob_context_dirent(&context, "a.c");
+  glob_context_dirent(&context, "a.out");
+  glob_context_dirent(&context, "a.h");
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.h", context.path );
-  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.out", context.path );
-  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_MATCH, glob_context_match(&context) );
   ASSERTSTREQ( "/root/test/a.c", context.path );
-  ASSERTEQ( GLOB_FILE, context.type );
 
   ASSERTEQ( GLOB_NOMATCH, glob_context_match(&context) );
-  ASSERTSTREQ( "/root/src/", context.path );
-  ASSERTEQ( GLOB_DIR, context.type );
+  ASSERTSTREQ( "/root/src", context.path );
 
   ASSERTEQ( GLOB_STOP, glob_context_match(&context) );
   
@@ -72,5 +66,5 @@ TEST( test_context_simple ) {
 }
 
 TEST( test_context_recursive ) {
-
+  
 }

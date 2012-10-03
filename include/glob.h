@@ -47,19 +47,18 @@ typedef enum {
   GLOB_STOP,
   GLOB_ERROR
 } glob_state_t;
-
+/*
 typedef enum {
   GLOB_END  = 0,
   GLOB_DIR  = (1 << 0),
   GLOB_FILE = (1 << 1),
   GLOB_LINK = (1 << 2)
 } glob_filetype_t;
-
+*/
 typedef struct glob_context_s glob_context_t;
 
 struct glob_context_s {
   fnmatch_context_t fnmatch;
-  glob_filetype_t   type;
   char*  path;
   size_t plen;
   size_t palloc;
@@ -67,6 +66,7 @@ struct glob_context_s {
   char*  buffer;
   size_t buflen;
   size_t bufalloc;
+  char*  dirent;
 };
 
 /* MARK: - Resumeable API *//**
@@ -74,7 +74,7 @@ struct glob_context_s {
  */
 GLOB_EXTERN void glob_context_init( glob_context_t* context, fnmatch_pattern_t* pattern, const char* path );
 GLOB_EXTERN void glob_context_destroy( glob_context_t* context );
-GLOB_EXTERN void glob_context_dirent( glob_context_t* context, glob_filetype_t type, const char* dirent );
+GLOB_EXTERN void glob_context_dirent( glob_context_t* context, const char* dirent );
 GLOB_EXTERN glob_state_t glob_context_match( glob_context_t* context );
 /** @} */
 
