@@ -28,7 +28,7 @@ TEST( test_context_simple ) {
   glob_context_t context;
   
   fnmatch_pattern_init(&pattern);
-  fnmatch_pattern_compile(&pattern, "test/*.[ch]");
+  fnmatch_pattern_compile(&pattern, "test/*.[ch]", 0);
   glob_context_init(&context, &pattern, "/root/");
 
   ASSERTEQ( GLOB_READDIR, glob_context_match(&context) );

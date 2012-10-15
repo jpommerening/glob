@@ -22,7 +22,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 E =
-CSTDFLAG = --std=c89 -pedantic -Wall -Wextra
+CSTDFLAG = --std=c99 -pedantic -Wall -Wextra
 CFLAGS += -g
 LINKFLAGS = 
 

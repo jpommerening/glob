@@ -13,7 +13,7 @@ int glob( const char* expr, int flags,
   getcwd( &(cwd[0]), sizeof(cwd) );
 
   fnmatch_pattern_init( &pattern );
-  fnmatch_pattern_compile( &pattern, expr );
+  fnmatch_pattern_compile( &pattern, expr, 0 );
 
   glob_context_init( &context, &pattern, &(cwd[0]) );
 
